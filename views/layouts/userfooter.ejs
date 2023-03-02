@@ -1,0 +1,167 @@
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+<!-- Start Script -->
+<script src="assets/js/jquery-1.11.0.min.js"></script>
+<script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/templatemo.js"></script>
+<script src="assets/js/custom.js"></script>
+<!-- End Script -->
+
+<!-- date script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+
+
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+
+<!-- form validation -->
+<!-- <script src="/javascripts/form.js"></script> -->
+
+<!-- Start Slider Script -->
+<script src="assets/js/slick.min.js"></script>
+<script>
+    $('#carousel-related-product').slick({
+        infinite: true,
+        arrows: false,
+        slidesToShow: 4,
+        slidesToScroll: 3,
+        dots: true,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 3
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 3
+            }
+        }
+        ]
+    });
+
+
+
+    //  validation
+    var nameError = document.getElementById('name-error');
+    var phoneError = document.getElementById('phone-error');
+    var emailError = document.getElementById('email-error');
+    var passwordError = document.getElementById('password-error');
+    var passwordError_two = document.getElementById('password-error_two');
+    var submitError = document.getElementById('submit-error');
+
+    function validateName() {
+        var name = document.getElementById('contact-name').value;
+
+        if (name.length == 0) {
+            nameError.innerHTML = 'Name is required';
+            return false;
+        }
+        if (!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
+            nameError.innerHTML = 'Write full Name';
+            return false;
+        }
+        nameError.innerHTML = '<i  class="fa-solid fa-circle-check log"></i>';
+        return true;
+    }
+
+    function validatePhone() {
+        var phone = document.getElementById('phone-no').value;
+
+        if (phone.length == 0) {
+            phoneError.innerHTML = 'Phone no is required';
+            return false;
+        }
+        if (phone.length !== 10) {
+            phoneError.innerHTML = 'Phone no should be 10 digits';
+            return false;
+        }
+        if (!phone.match(/^[0-9]{10}$/)) {
+            phoneError.innerHTML = 'only digits please';
+            return false;
+        }
+
+        phoneError.innerHTML = '<i  class="fa-solid fa-circle-check log"></i>';
+        return true;
+    }
+
+    function validateEmail() {
+        var email = document.getElementById('contact-email').value;
+
+        if (email.length == 0) {
+            emailError.innerHTML = 'Email is required';
+            return false;
+        }
+        if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+            emailError.innerHTML = 'Email is invalid';
+            return false;
+        }
+        emailError.innerHTML = '<i  class="fa-solid fa-circle-check log"></i>';
+        return true;
+    }
+
+    function validatePassword() {
+        var password = document.getElementById('password').value;
+        var password_two = document.getElementById('password_two').value;
+
+        if (password.length == 0) {
+            passwordError.innerHTML = 'password empty';
+            return false;
+        }
+        if (password_two != password) {
+          document.getElementById('password-error_two').innerHTML =
+            "Password are not matching";
+          return false;
+        }
+        
+        passwordError.innerHTML = '<i  class="fa-solid fa-circle-check log"></i>';
+        return true;
+        
+    }
+
+
+    function validateForm() {
+        if (!validateName() || !validatePhone() || !validateEmail() || !validatePassword()) {
+            submitError.style.display = 'block';
+            submitError.innerHTML = 'Please fill all field';
+            setTimeout(function () { submitError.style.display = 'none' }, 3000)
+            return false;
+        }
+    }
+
+
+</script>
+
+
+
+
+<!-- End Slider Script -->
+</body>
+
+</html>

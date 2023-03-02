@@ -1,0 +1,60 @@
+<%- include ('../layouts/adminHeader.ejs') %>
+
+<%- include ('../layouts/adminMain.ejs') %>
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/admin/uploadedimages/<%= product[0].image[0] %>"  width="100%" height="100vh" class="img-fluid mb-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/admin/uploadedimages/<%= product[0].image[1] %>"  width="100vw" height="100vh" class="img-fluid mb-4">
+                </div>
+                <div class="col-md-4">
+                    <img src="/admin/uploadedimages/<%= product[0].image[2] %>"  width="100vw" height="100vh" class="img-fluid mb-4">
+                </div>
+                <div class="col-md-4">
+                    <img src="/admin/uploadedimages/<%= product[0].image[3] %>"  width="100vw" height="100vh" class="img-fluid mb-4">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h2>Name:<%= product[0].name %></h2>
+            <p>Description:<%= product[0].description %></p>
+            <hr>
+            <h4>Product Information</h4>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Price:</td>
+                        <td>Rs:<%= product[0].price %></td>
+                    </tr>
+                    <tr>
+                        <td>Category:</td>
+                        <td><%= product[0].category %></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity:</td>
+                        <td><%= product[0].quantity %></td>
+                    </tr>
+                    <tr>
+                        <td>Rating:</td>
+                        <td><%= product[0].rating %></td>
+                    </tr>
+                    <tr>
+                        <td>Color:</td>
+                        <td>All colour Available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<%- include ('../layouts/adminFooter.ejs') %>
+

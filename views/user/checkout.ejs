@@ -1,0 +1,626 @@
+<%- include ('../layouts/userheader.ejs') %>
+
+    <% if(id) { %>
+        <!-- Start Top Nav -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+            <div class="container text-light">
+                <div class="w-100 d-flex justify-content-between">
+                    <div>
+                        <i class="fa fa-envelope mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none"
+                            href="mailto:info@company.com">info@company.com</a>
+                        <i class="fa fa-phone mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none"
+                            href="tel:010-020-0340">010-020-0340</a>
+                    </div>
+                    <div>
+                        <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                                class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                                class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                                class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                                class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Close Top Nav -->
+
+
+        <!-- Header -->
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+
+                <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                    Zay
+                </a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                    id="templatemo_main_nav">
+                    <div class="flex-fill">
+                        <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/products">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navbar align-self-center d-flex">
+                        <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                                <div class="input-group-text">
+                                    <i class="fa fa-fw fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                            data-bs-target="#templatemo_search">
+                            <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                        </a>
+                        <a class="nav-icon position-relative text-decoration-none" href="/cart">
+                            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                            <span
+                                class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        </a>
+                        <div class="dropdown">
+                            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                <a class="dropdown-item" href="/logout">Sign Out</a>
+                                <!-- <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a> -->
+                            </div>
+                        </div>
+                        <!-- <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                    <!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> -->
+                        <!-- </a>  -->
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!-- Close Header -->
+        <% }else { %>
+            <%- include ('../layouts/usernavbar.ejs') %>
+                <% } %>
+
+                    <section class="banner-area organic-breadcrumb">
+                        <div class="container">
+                            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+                                <div class="col-first mt-4">
+                                    <h1 style="color: #59ab6e;">Checkout</h1>
+                                    <nav class="d-flex align-items-center">
+                                        <!-- <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a> -->
+                                        <!-- <a href="single-product.html">Checkout</a> -->
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End Banner Area -->
+
+                    <!--================Checkout Area =================-->
+                    <section class="checkout_area section_gap">
+                        <div class="container">
+                            <!-- <div class="returning_customer">
+            <div class="check_title">
+                <h2>Returning Customer? <a href="#">Click here to login</a></h2>
+            </div>
+            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new
+                customer, please proceed to the Billing & Shipping section.</p>
+            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                <div class="col-md-6 form-group p_star">
+                    <input type="text" class="form-control" id="name" name="name">
+                    <span class="placeholder" data-placeholder="Username or Email"></span>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                    <input type="password" class="form-control" id="password" name="password">
+                    <span class="placeholder" data-placeholder="Password"></span>
+                </div>
+                <div class="col-md-12 form-group">
+                    <button type="submit" value="submit" class="primary-btn">login</button>
+                    <div class="creat_account">
+                        <input type="checkbox" id="f-option" name="selector">
+                        <label for="f-option">Remember me</label>
+                    </div>
+                    <a class="lost_pass" href="#">Lost your password?</a>
+                </div>
+            </form>
+        </div>
+        <div class="cupon_area">
+            <div class="check_title">
+                <h2>Have a coupon? <a href="#">Click here to enter your code</a></h2>
+            </div>
+            <input type="text" placeholder="Enter coupon code">
+            <a class="tp_btn" href="#">Apply Coupon</a>
+        </div> -->
+
+                            <!-- <ul class="list">
+            <li class="col-md-3 form-group p_star"> -->
+                            <div class="container">
+                                <div class="row d-flex flex-row-reverse">
+
+                                    <div class="col-12 col-sm-6 col-md-4">
+                                        <form action="/addCoupon" method="post">
+                                            <div class="cupon_text d-flex justify-content-between my-4">
+
+                                                <input type="text" placeholder="Coupon Code" class="form-control "
+                                                    name="offer">
+
+                                                <button class="btn btn-success text-white" type="submit"
+                                                    style="margin-left: 1.4rem;">Apply</button>
+
+                                            </div>
+                                        </form>
+
+
+                                        <% if(nocoupon) { %>
+                                            <p style="color: red">INVALID COUPON</p>
+                                            <% } else { %>
+                                                <!-- <p style="color: rgb(10, 206, 0)">VALID COUPON</p> -->
+                                                <% } %>
+                                                    <% if(typeof message !=='undefined' ){%>
+                                                        <p style="color:rgb(255, 0, 0)">
+                                                            <%= message %>
+                                                        </p>
+                                                        <% } %>
+                                                        
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- </li>
+
+            </ul> -->
+
+
+                            <form action="/checkout" method="post" id="payment-form" >
+                                <div class="billing_details">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <h3>Billing Details</h3>
+
+                                            <% if(addSelect!=null){ %>
+
+
+                                                <div class="col-md-6 form-group p_star ">
+                                                    <span style="font-size: small;">First Name</span><br>
+                                                    <input type="text" class="form-control" id="first" name="firstname"
+                                                        value="<%= addSelect.firstname %>">
+
+                                                </div>
+                                                <div class="col-md-6 form-group p_star">
+                                                    <span style="font-size: small;">Last Name</span><br>
+                                                    <input type="text" class="form-control" id="last" name="lastname"
+                                                        value="<%= addSelect.lastname %>">
+
+                                                </div>
+                                                <div class="col-md-12 form-group p_star">
+                                                    <span style="font-size: small;">Ph Number</span><br>
+                                                    <input type="text" class="form-control" id="number" name="phone"
+                                                        value="<%= addSelect.phone %>">
+
+                                                </div>
+
+
+                                                <div class="col-md-12 form-group p_star">
+                                                    <span style="font-size: small;">Address</span><br>
+                                                    <input type="text" class="form-control" id="number" name="address"
+                                                        value="<%= addSelect.address %>">
+
+                                                </div>
+
+
+                                                <div class="col-md-12 form-group p_star">
+                                                    <span style="font-size: small;">Country</span><br>
+                                                    <input type="text" class="form-control" id="add1" name="country"
+                                                        value="<%= addSelect.country %>">
+
+                                                </div>
+
+
+                                                <div class="col-md-12 form-group p_star">
+                                                    <span style="font-size: small;">State</span><br>
+                                                    <input type="text" class="form-control" id="add1" name="state"
+                                                        value="<%= addSelect.state %>">
+
+                                                </div>
+
+                                                <div class="col-md-12 form-group p_star">
+                                                    <span style="font-size: small;">City</span><br>
+                                                    <input type="text" class="form-control" id="city" name="city"
+                                                        value="<%= addSelect.city %>">
+
+                                                </div>
+
+                                                <div class="col-md-12 form-group">
+                                                    <span style="font-size: small;">Postcode</span><br>
+                                                    <input type="text" class="form-control" id="zip" name="zip"
+                                                        placeholder="Postcode/ZIP" value="<%= addSelect.zip %>">
+                                                </div>
+
+                                                <div class="row">
+                                                    <%if(userAddress.length>0){
+                                                        for(let key of userAddress){%>
+                                                        <a href="/checkout?addressid=<%=key._id%>">
+                                                            <div class="col-md-6 form-group p_star">
+                                                                <a href="/checkout?addressid=<%=key._id%>">
+                                                                    <div class="card card-dashboard">
+
+                                                                        <a href="/checkout?addressid=<%=key._id%>"
+                                                                            style="    text-decoration: none;
+    color: black;">
+                                                                            <div class="card-body">
+                                                                                <h3 class="card-title text-dark"
+                                                                                    style="text-decoration: underline;">
+                                                                                    Shipping
+                                                                                    Address</h3>
+                                                                                <!-- End .card-title -->
+
+                                                                                <p style="color: black;">
+                                                                                    <%= key.firstname %>
+                                                                                        <%=key.lastname%><br>
+                                                                                            <%= key.address %> ,
+                                                                                                <%= key.address2 %>
+                                                                                                    <br>
+                                                                                                    <%= key.city %>
+                                                                                                        , <%= key.state
+                                                                                                            %><br>
+                                                                                                            <%= key.country
+                                                                                                                %>
+                                                                                                                <br>
+                                                                                                                <%= key.zip
+                                                                                                                    %>
+                                                                                                                    <br>
+                                                                                                                    <%= key.phone
+                                                                                                                        %>
+                                                                                                                        <br>
+                                                                                                                        <br>
+                                                                                                                        <!-- <a href="#">Edit <i class="icon-edit"></i></a> -->
+
+                                                                                </p>
+                                                                            </div>
+                                                                        </a>
+                                                                        <!-- End .card-body -->
+                                                                    </div>
+                                                                </a>
+                                                                <!-- End .card-dashboard -->
+                                                            </div>
+                                                        </a>
+                                                        <!-- End .col-lg-6 -->
+                                                        <%}}else{%>
+
+                                                            <div class="col-lg-6">
+                                                                <a href="">
+                                                                    <div class="card card-dashboard">
+                                                                        <div class="card-body">
+                                                                            <h3 class="card-title">Shipping Address
+                                                                            </h3>
+
+                                                                            <p>You have not set up this type of
+                                                                                address yet.<br>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <%}%>
+                                                </div><!-- End .row -->
+
+
+                                                <!-- <div class="col-md-12 form-group">
+                            <div class="creat_account">
+                                <input type="checkbox" id="f-option2" name="selector">
+                                <label for="f-option2">Create an account?</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="creat_account">
+                                <h3>Shipping Details</h3>
+                                <input type="checkbox" id="f-option3" name="selector">
+                                <label for="f-option3">Ship to a different address?</label>
+                            </div>
+                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Order Notes"></textarea>
+                        </div> -->
+
+
+                                                <% }else{ %>
+
+
+                                                    <div class="col-md-6 form-group p_star">
+                                                        <span style="font-size: small;">First Name</span><br>
+                                                        <input type="text" class="form-control" id="addressForm"
+                                                            name="name">
+                                                        <span class="placeholder" data-placeholder="First name"></span>
+                                                    </div>
+                                                    <div class="col-md-6 form-group p_star">
+                                                        <span style="font-size: small;">last Name</span><br>
+                                                        <input type="text" class="form-control" id="last" name="name">
+                                                        <span class="placeholder" data-placeholder="Last name"></span>
+                                                    </div>
+
+                                                    <div class="col-md-12 form-group p_star">
+                                                        <span style="font-size: small;">Ph Number</span><br>
+                                                        <input type="text" class="form-control" id="number"
+                                                            name="number">
+                                                        <span class="placeholder"
+                                                            data-placeholder="Phone number"></span>
+                                                    </div>
+
+
+                                                    <div class="col-md-12 form-group p_star">
+                                                        <span style="font-size: small;">Address</span><br>
+                                                        <input type="text" class="form-control" id="add1" name="add1">
+                                                        <span class="placeholder" data-placeholder="Address"></span>
+                                                    </div>
+
+                                                    <div class="col-md-12 form-group p_star">
+                                                        <span style="font-size: small;">Town/City</span><br>
+                                                        <input type="text" class="form-control" id="city" name="city">
+                                                        <span class="placeholder" data-placeholder="Town/City"></span>
+                                                    </div>
+                                                    <div class="col-md-12 form-group p_star">
+                                                        <span style="font-size: small;">Country</span><br>
+                                                        <input type="text" class="form-control" id="city" name="city">
+                                                        <span class="placeholder" data-placeholder="Country"></span>
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <span style="font-size: small;">Postcode</span><br>
+                                                        <input type="text" class="form-control" id="zip" name="zip"
+                                                            placeholder="">
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <%if(userAddress.length>0){
+                                                            for(let key of userAddress){%>
+                                                            <a href="/checkout?addressid=<%=key._id%>">
+                                                                <div class="col-md-6 form-group p_star">
+                                                                    <a href="/checkout?addressid=<%=key._id%>">
+                                                                        <div class="card card-dashboard">
+
+                                                                            <a href="/checkout?addressid=<%=key._id%>"
+                                                                                style="color: black; text-decoration: none;">
+                                                                                <div class="card-body">
+                                                                                    <h3 class="card-title text-dark"
+                                                                                        style="text-decoration: underline;">
+                                                                                        Shipping
+                                                                                        Address</h3>
+                                                                                    <!-- End .card-title -->
+
+                                                                                    <p style="color: black;">
+                                                                                        <%= key.firstname %>
+                                                                                            <%=key.lastname%><br>
+                                                                                                <%= key.address %> , <%=
+                                                                                                        key.address2 %>
+                                                                                                        <br>
+                                                                                                        <%= key.city %>
+                                                                                                            , <%=
+                                                                                                                key.state
+                                                                                                                %><br>
+                                                                                                                <%= key.country
+                                                                                                                    %>
+                                                                                                                    <br>
+                                                                                                                    <%= key.zip
+                                                                                                                        %>
+                                                                                                                        <br>
+                                                                                                                        <%= key.phone
+                                                                                                                            %>
+                                                                                                                            <br>
+                                                                                                                            <br>
+                                                                                                                            <!-- <a href="#">Edit <i class="icon-edit"></i></a> -->
+
+                                                                                    </p>
+                                                                                </div>
+                                                                            </a>
+                                                                            <!-- End .card-body -->
+                                                                        </div>
+                                                                    </a>
+                                                                    <!-- End .card-dashboard -->
+                                                                </div>
+                                                            </a>
+                                                            <!-- End .col-lg-6 -->
+                                                            <%}}else{%>
+
+                                                                <div class="col-lg-6">
+                                                                    <a href="/dashboard"
+                                                                        style="color: black; text-decoration: none;">
+                                                                        <div class="card card-dashboard">
+                                                                            <div class="card-body">
+                                                                                <h3 class="card-title">Shipping Address
+                                                                                </h3>
+
+                                                                                <p>You have not set up this type of
+                                                                                    address yet.<br>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <%}%>
+                                                    </div><!-- End .row -->
+                                                    <!-- <div class="col-md-12 form-group">
+                            <div class="creat_account">
+                                <input type="checkbox" id="f-option2" name="selector">
+                                <label for="f-option2">Create an account?</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="creat_account">
+                                <h3>Shipping Details</h3>
+                                <input type="checkbox" id="f-option3" name="selector">
+                                <label for="f-option3">Ship to a different address?</label>
+                            </div>
+                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Order Notes"></textarea>
+                        </div> -->
+
+
+                                                    <% } %>
+
+
+                                        </div>
+
+
+                                        
+                                            <div class="col-lg-4">
+                                                <div class="order_box">
+                                                    <h2>Your Order</h2>
+                                                    <ul class="list">
+
+
+                                                        <%= qty %>
+                                                            <% for(let key of cartProducts.item){ %>
+
+
+                                                                <li><a href="#" class="text-dark"
+                                                                        style="text-decoration: none;">
+                                                                        <%= key.productId.name %> <span class="middle">
+                                                                                x
+                                                                                <%= key.qty %>
+                                                                            </span> <span class="last">: ₹
+                                                                                <%= key.productId.price*key.qty %>
+                                                                            </span>
+                                                                    </a></li>
+                                                                <%}%>
+
+                                                    </ul>
+
+
+
+                                                    <div class="payment_item">
+                                                        <div class="radion_btn">
+                                                            <input type="radio" id="payment-cod" name="payment"
+                                                                value="cod">
+                                                            <label for="f-option5">Cash On Delivery</label>
+                                                            <div class="check"></div>
+                                                        </div>
+
+
+
+                                                        <p>Please send a check to Store Name, Store Street, Store Town,
+                                                            Store State / County,
+                                                            Store Postcode.</p>
+                                                    </div>
+
+
+
+
+
+                                                    <div class="payment_item active">
+                                                        <div class="radion_btn">
+                                                            <input type="radio" id="payment-razorpay" name="payment"
+                                                                value="RazorPay">
+                                                            <label for="f-option6">Razorpay
+                                                            </label><br>
+                                                            <img src="https://help.zazzle.com/hc/article_attachments/360010513393/Logos-01.png"
+                                                                alt="" style="width:200px">
+                                                            <div class="check"></div>
+                                                        </div>
+                                                        <p>Pay via Razorpay; you can pay with your
+                                                            credit card if
+                                                            you don’t have a Razorpay
+                                                            account.</p>
+                                                    </div>
+                                                    <table>
+                                                        <tr class="">
+                                                            <td>
+                                                                Coupon applied:
+                                                            </td>
+                                                            <td style="color:rgb(16, 4, 252);font-weight: 500;">
+                                                                <%= offer.name %>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="summary-total">
+                                                            <td>
+                                                                Discount
+                                                            </td>
+                                                            <td>
+                                                                <% if(offer.type=='flat' ){ %>
+                                                                    Rs:<%= offer.discount %>
+                                                                        <% } else{ %>
+                                                                            <%= offer.discount %>%
+                                                                                <% } %>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="summary-total">
+                                                            <td>Total:</td>
+                                                            <td>
+                                                                <% if(id){ %>
+                                                                    ₹ <%= couponTotal %>
+                                                                        <% } %>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+                                                    <div class="creat_account">
+                                                        <input type="checkbox" id="f-option4" name="selector">
+                                                        <label for="f-option4">I’ve read and accept
+                                                            the </label>
+                                                        <a href="#">terms & conditions*</a><br>
+                                                        <span id="payment-error" style="color: red;"></span>
+                                                        <span id="field-error" style="color: red;"></span>
+                                                        <p id="radio-error"></p>
+                                                    </div>
+
+                                                    <button type="submit" class="primary-btn" id="myButton"
+                                                        onclick="validateForm()">Place
+                                                        Order</button>
+
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
+                        </div>
+                        </div>
+
+
+                    </section>
+                    <script>
+                        function validateForm() {
+                            const paymentOptions = document.getElementsByName('payment');
+                            const paymentError = document.getElementById('payment-error');
+
+                            let isChecked = false;
+                            for (let i = 0; i < paymentOptions.length; i++) {
+                                if (paymentOptions[i].checked) {
+                                    isChecked = true;
+                                    break;
+                                }
+                            }
+
+                            if (!isChecked) {
+                                paymentError.innerHTML = 'Please select a payment option';
+                                return false;
+                            } else {
+                                paymentError.innerHTML = '';
+                                return true;
+                            }
+                        }
+
+
+                    </script>
+
+
+
+
+
+                    <%- include ('../layouts/userfooter.ejs') %>

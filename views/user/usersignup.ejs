@@ -1,0 +1,186 @@
+<%- include ('../layouts/userheader.ejs') %>
+
+<%- include ('../layouts/usernavbar.ejs') %>
+
+
+        <!-- form -->
+        <div class="wrapper" style="min-height: 70vh;">
+            <div class="container log_in">
+                <div class="col-left">
+                    <div class="login-text">
+                        <h2 class="login_logo">Zay</h2>
+                        <!-- <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget eros dapibus, ultricies tellus vitae, consectetur tortor. Etiam rutrum placerat
+          </p>
+          <a class="btn" href="">Read More</a> -->
+                    </div>
+                </div>
+                <div class="col-right">
+                    <div class="login-form">
+                        <h2>Sign Up</h2>
+                        <form action="/register" method="POST" id="contactForm" novalidate="novalidate">
+                            <p>
+                                <input type="text" name="name" placeholder="Username" id="contact-name" required
+                                    onkeyup="validateName()">
+                                <span id="name-error" class="error"></span>
+                            </p>
+                            <p>
+                                <input type="email" name="email" placeholder="Email" id="contact-email" required
+                                    onkeyup="validateEmail()">
+                                <span id="email-error" class="error"></span>
+                            </p>
+                            <p>
+                                <input type="number" name="mno" placeholder="Mobile No" id="phone-no" required
+                                    onkeyup="validatePhone()">
+                                <span id="phone-error" class="error"></span>
+                            </p>
+                            <p>
+                                <input type="password" name="password" placeholder="Password" id="password" required
+                                    onkeyup="validatePassword()">
+                                <span id="password-error" class="error"></span>
+                            </p>
+                            <p>
+                                <input type="password" name="password2" placeholder="Confirm Password" id="password_two" required
+                                    onkeyup="validatePassword()">
+                                <span id="password-error_two" class="error"></span>
+                            </p>
+                            <p>
+                                <input class="btn" type="submit" value="Register" id="success"
+                                    onclick="return validateForm()" />
+                                <span id="submit-error" class="error"></span>
+                                
+                            </p>
+                            <p>
+                                <a href="">Forget password?</a>
+                                <a href="/login">Already have an account.</a>
+                            </p>
+
+                        </form>
+                        <% if(typeof message !=='undefined' ) { %>
+                            <p class="mt-3" style="color: rgb(255, 0, 0); font-weight: bold">
+                                <%= message %>
+                            </p>
+                            <% } %>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Start Footer -->
+        <footer class="bg-dark" id="tempaltemo_footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-success border-bottom pb-3 border-light logo">Zay Shop</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt fa-fw"></i>
+                                123 Consectetur at ligula 10660
+                            </li>
+                            <li>
+                                <i class="fa fa-phone fa-fw"></i>
+                                <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope fa-fw"></i>
+                                <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li><a class="text-decoration-none" href="#">Luxury</a></li>
+                            <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
+                            <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
+                            <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
+                            <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
+                            <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
+                            <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li><a class="text-decoration-none" href="#">Home</a></li>
+                            <li><a class="text-decoration-none" href="#">About Us</a></li>
+                            <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
+                            <li><a class="text-decoration-none" href="#">FAQs</a></li>
+                            <li><a class="text-decoration-none" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="row text-light mb-4">
+                    <div class="col-12 mb-3">
+                        <div class="w-100 my-3 border-top border-light"></div>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <ul class="list-inline text-left footer-icons">
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank"
+                                    href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank"
+                                    href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank"
+                                    href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank"
+                                    href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <label class="sr-only" for="subscribeEmail">Email address</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control bg-dark border-light" id="subscribeEmail"
+                                placeholder="Email address">
+                            <div class="input-group-text btn-success text-light">Subscribe</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100 bg-black py-3">
+                <div class="container">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="text-left text-light">
+                                Copyright &copy; 2021 Company Name
+                                | Designed by <a rel="sponsored" href="https://templatemo.com"
+                                    target="_blank">TemplateMo</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- End Footer -->
+
+        <!-- validation style  -->
+
+        <style>
+            .error {
+                color: rgb(228, 124, 5);
+            }
+
+            .log {
+                color: seagreen;
+            }
+        </style>
+
+<%- include ('../layouts/userfooter.ejs') %>

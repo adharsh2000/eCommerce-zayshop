@@ -1,0 +1,195 @@
+<%- include ('../layouts/adminHeader.ejs') %>
+
+  <%- include ('../layouts/adminMain.ejs') %>
+
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+
+
+
+
+
+      <div class="container-xxl flex-grow-1 container-p-y">
+
+
+
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="mt-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCenter">
+              Add Coupon
+            </button>
+
+            <!-- Modal -->
+            <form action="/admin/offers" method="post" onsubmit="return allChecking()"">
+            <div class=" modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalCenterTitle">Add</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col mb-3">
+                        <label for="nameWithTitle" class="form-label">Enter Offer Name</label>
+                        <input type="text" name="name" id="nameWithTitle" class="form-control" placeholder=""
+                          class="email" />
+                      </div>
+                    </div>
+                    <div class="row g-2">
+                      <div class="col mb-0">
+                        <label for="cars">Choose Type:</label>
+                        <select name="type" id="cars">
+                          <option value="flat" type="text" name="type">flat</option>
+                          <option value="percentage" type="text" name="type">percentage</option>
+                        </select>
+                        <br><br>
+                        <!-- <label for="emailWithTitle" class="form-label">Enter Type</label>
+                        <input
+                          type="text"
+                          name="type"
+                          id="emailWithTitle"
+                          class="form-control"
+                          placeholder=""
+                        /> -->
+                      </div>
+                      <div class="col mb-0">
+                        <label for="dobWithTitle" class="form-label">Enter Discount</label>
+                        <input type="text" name="discount" id="discount" class="form-control" placeholder="" />
+                      </div>
+                      <div class="col mb-0">
+                        <label for="dobWithTitle" class="form-label">Expire Date</label>
+                        <input type="Date" name="expireAt" id="dobWithTitle" class="form-control" placeholder="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                  <span id="Name" style="color: red;"></span>
+                  <span id="Type" style="color: red;"></span>
+                  <span id="Discount" style="color: red;"></span>
+                </div>
+              </div>
+          </div>
+
+          </form>
+        </div>
+        <br>
+      </div>
+
+
+
+
+      <div class="card">
+        <h5 class="card-header">Offer list</h5>
+        <div class="table-responsive text-nowrap">
+          <table class="table">
+            <thead>
+
+            </thead>
+            <thead>
+              <th>SI NO</th>
+              <th>Offer Name</th>
+              <th>Offer Type</th>
+              <th>Offer Discount</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <% if(offer.length> 0){ %>
+                <% for(let i=0;i < offer.length; i++){ %>
+
+
+                  <tr>
+                    <th>
+                      <%= i+1 %>
+                    </th>
+                    <td>
+
+                      <%= offer[i].name %>
+                    </td>
+                    <td>
+                      <%= offer[i].type %>
+                    </td>
+                    <td>
+                      <% if(offer[i].type=='flat' ){ %>
+                        Rs:<%= offer[i].discount %>
+                          <% } else{ %>
+                            <%= offer[i].discount %>%
+                              <% } %>
+                    </td>
+                    <td>
+                      <a class="text-danger" href="/admin/deleteOffer?id=<%= offer[i]._id %>"><i style="color: #ff0000;"
+                          class="m-r-5 mdi mdi-border-color"></i>Delete</a><br>
+                    </td>
+
+
+
+                  </tr>
+
+                  <% } } else{ %>
+                    <tr>
+                      <td colspan="5">No Offers Added</td>
+                    </tr>
+                    <% } %>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <script>
+        function allChecking() {
+  var name = document.getElementById("nameWithTitle").value;
+  var type = document.getElementById("cars").value;
+  var discount = document.getElementById("discount").value;
+  var expireAt = document.getElementById("dobWithTitle").value;
+  
+  if (name == "") {
+    document.getElementById("Name").innerHTML = "Name is required";
+    return false;
+  }
+  
+  if (type == "") {
+    document.getElementById("Type").innerHTML = "Type is required";
+    return false;
+  }
+  
+  if (discount == "") {
+    document.getElementById("Discount").innerHTML = "Discount is required";
+    return false;
+  } else if (type == "percentage" && (discount < 0 || discount > 90)) {
+    document.getElementById("Discount").innerHTML = "Discount percentage should be between 0 and 90";
+    return false;
+  }
+  
+  if (expireAt == "") {
+    document.getElementById("ExpireAt").innerHTML = "Expire date is required";
+    return false;
+  }
+  
+  return true;
+}
+// Get current date
+var today = new Date();
+
+// Get input element
+var expireDateInput = document.getElementById("dobWithTitle");
+
+// Set the min date to today's date
+expireDateInput.min = today.toISOString().split('T')[0];
+
+// Set the max date to one year from today
+var oneYearFromToday = new Date(today.getFullYear() + 1, today.getMonth(), today.getDate());
+expireDateInput.max = oneYearFromToday.toISOString().split('T')[0];
+
+      </script>
+
+      <%- include ('../layouts/adminFooter.ejs') %>
