@@ -32,7 +32,7 @@ let nocoupon;
 const sendMessage = function (mobile, res) {
   let randomOTP = Math.floor(Math.random() * 10000);
   var options = {
-    authorization: "cddndniudddd",
+    authorization: process.env.OTP_KEY,
     message: `your OTP verification code is ${randomOTP}`,
     numbers: [mobile],
   }
@@ -904,8 +904,8 @@ const razorpayCheckout = async (req, res) => {
   const userData = await User.findById({ _id: userSession.userId });
   const completeUser = await userData.populate("cart.item.productId");
   var instance = new Razorpay({
-    key_id: "rzp_test_4HEuEe6Sj8lMaK",
-    key_secret: "TmTCjrmbDypFvPPDbJWqCA5i",
+    key_id: process.env.key_id,
+    key_secret: process.env.key_secret,
   });
   let order = await instance.orders.create({
     amount: completeUser.cart.totalPrice * 100,
