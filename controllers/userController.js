@@ -32,7 +32,7 @@ let nocoupon;
 const sendMessage = function (mobile, res) {
   let randomOTP = Math.floor(Math.random() * 10000);
   var options = {
-    authorization: "gfdghdhd",
+    authorization: process.env.OTP_KEY,
     message: `your OTP verification code is ${randomOTP}`,
     numbers: [mobile],
   }
