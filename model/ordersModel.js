@@ -77,11 +77,14 @@ const orderSchema = new mongoose.Schema({
   productReturned: [{
     type: Number
   }],
-  couponName: {
+  offer: {
     type: String
   },
-  couponDiscount: {
+  discount: {
     type: Number
+  },
+  type:{
+    type: String
   }
 })
 
@@ -99,7 +102,7 @@ orderSchema.methods.addToOrders = function (product) {
     })
   }
   cart.totalPrice += product.price
-  console.log('User in schema:', this)
+  // console.log('User in schema:', this)
   return this.save()
 }
 

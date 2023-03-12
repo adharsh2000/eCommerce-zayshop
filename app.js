@@ -29,12 +29,7 @@ require('./config/connection').connect()
     }),
   );
 
-
 app.set('view engine', 'ejs');
-// adminRouter.set('views','./views/Admin')
-// userRouter.set('views','./views/user')
-
-app.set('view-engine', 'ejs')
 
 //serving static files
 app.use('/', express.static('public'))

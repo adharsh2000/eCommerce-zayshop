@@ -1,132 +1,113 @@
 <%- include ('../layouts/adminHeader.ejs') %>
 
-<%- include ('../layouts/adminMain.ejs') %>
+  <%- include ('../layouts/adminMain.ejs') %>
 
-
- 
-  
-  
-  
-  <!-- Content wrapper -->
-  <div class="content-wrapper">
-    <!-- Content -->
-  
-    
-    
-    <div class="container-xxl flex-grow-1 container-p-y">
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+      <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> </h4>
         <form action="/admin/loadBanner" method="post" enctype="multipart/form-data" onsubmit="return emailValidate()">
           <div class="row">
-              <div class="col-md-12 mb-4 d-flex  justify-content-around">
-                  <div class="form-outline">
-                      <input style="width: 30vw;" type="text" name="banner" id="form3Example1"
-                          class="form-control" placeholder="Banner name" />
+            <div class="col-md-12 mb-4 d-flex  justify-content-around">
+              <div class="form-outline">
+                <input style="width: 30vw;" type="text" name="banner" id="form3Example1" class="form-control"
+                  placeholder="Banner name" />
+              </div>
+
+              <% if(typeof message !=='undefined' ){%>
+                <p class="mt-1 ps-2 text-danger">
+                  <%= message %>
+                </p>
+                <%}%>
+                  <div class="form-outline ">
+                    <input style="width: 30vw;" type="file" name="bannerImage" id="imageInput" class="form-control"
+                      multiple onchange="validateImage()" />
+
                   </div>
-                  
-                  <% if(typeof message !=='undefined' ){%>
-      
-                      <p class="mt-1 ps-2 text-danger">
-                          <%= message %>
-                      </p>
-      
-                      <%}%>
-                          <div class="form-outline ">
-                              <!-- <input style="width: 30vw;" type="file" name="bannerImage"
-                                  id="form3Example1" class="form-control" multiple /> -->
-                                  <input style="width: 30vw;" type="file" name="bannerImage" id="imageInput" 
-                                  class="form-control" multiple onchange="validateImage()"/>
-                                  
-                                </div>
-                                
-                                <input style="width:7vw; " type="submit"
-                                class="btn btn-primary   form-control " value="Upload">
-                              </div>
-                              <span id="imageError" style="color: red;"></span>
-                              <span id="Email" style="color: red;"></span>
+
+                  <input style="width:7vw; " type="submit" class="btn btn-primary   form-control " value="Upload">
+            </div>
+            <span id="imageError" style="color: red;"></span>
+            <span id="Email" style="color: red;"></span>
           </div>
-      
-      </form>
-        
-  
-  <div class="card">
-  <h5 class="card-header">Banner list</h5>
-  <div class="table-responsive text-nowrap">
-  <table class="table">
-  <thead>
-  
-  </thead>
-  <thead>
-      <th><span>Sl NO</span></th>
-      <th><span>Image</span></th>
-      <th><span>Name</span></th>
-      <th>Status</th>
-      <th><span>Actions</span></th>
-  </thead>
-  <tbody>
-      <% if(banners.length> 0){
-          for(let i=0; i<banners.length;i++ ){%>
-    <tr>
-     
-        <td>
-          <span>
-              <%=i+1 %>
-          </span>
-            
-        </td>
-        <td style="image-resolution: 5px;">
-           <img src="/admin/multer/img/<%=banners[i].bannerImage[0] %> "
-               alt="" width="100vw" height="50vh">
-           <img src="/admin/multer/img/<%=banners[i].bannerImage[1] %>"
-               alt="" width="100vw" height="50vh">
-           <img src="/admin/multer/img/<%=banners[i].bannerImage[2] %>"
-               alt="" width="100vw" height="50vh">
-        </td>
-        <td>
-          <%=banners[i].banner %>
-        </td>
-        <td>
-          
-          <% if(banners[i].is_active==1) { %>
-                  <img style="width: 1.6vw"
-          src="/admin/multer/img/greenmark.jpg" />
-          <% } else { %>
-              
-              <% } %>
-          
-        </td>
-        <td>
-          <a href="/admin/currentBanner?id=<%= banners[i]._id %>" class="btn btn-info"> choose </a>
-        </td>
-      <td>
-          <%}}%>
-               
-        </td>
-        
-    
-  </tbody>
-  </table>
-  </div>
-  </div>
+        </form>
+        <div class="card">
+          <h5 class="card-header">Banner list</h5>
+          <div class="table-responsive text-nowrap">
+            <table class="table">
+              <thead>
 
-  <script>
-  function validateImage() {
-    const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-    const selectedFile = document.getElementById('imageInput').value;
-    const imageError = document.getElementById('imageError');
-    if (!allowedExtensions.exec(selectedFile)) {
-      imageError.innerHTML = 'Please upload a valid image file (JPG/JPEG/PNG/GIF).';
-      document.getElementById('imageInput').value = '';
-      return false;
-    }
-    else {
-      imageError.innerHTML = '';
-    }
-  }
-</script>
-  
+              </thead>
+              <thead>
+                <th><span>Sl NO</span></th>
+                <th><span>Image</span></th>
+                <th><span>Name</span></th>
+                <th>Status</th>
+                <th><span>Actions</span></th>
+              </thead>
+              <tbody>
+                <% if(banners.length> 0){
+                  for(let i=0; i<banners.length;i++ ){%>
+                    <tr>
 
-<script>
-  function emailValidate() {
+                      <td>
+                        <span>
+                          <%=i+1 %>
+                        </span>
+
+                      </td>
+                      <td style="image-resolution: 5px;">
+                        <img src="/admin/multer/img/<%=banners[i].bannerImage[0] %> " alt="" width="100vw"
+                          height="50vh">
+                        <img src="/admin/multer/img/<%=banners[i].bannerImage[1] %>" alt="" width="100vw" height="50vh">
+                        <img src="/admin/multer/img/<%=banners[i].bannerImage[2] %>" alt="" width="100vw" height="50vh">
+                      </td>
+                      <td>
+                        <%=banners[i].banner %>
+                      </td>
+                      <td>
+
+                        <% if(banners[i].is_active==1) { %>
+                          <img style="width: 1.6vw" src="/admin/multer/img/greenmark.jpg" />
+                          <% } else { %>
+
+                            <% } %>
+
+                      </td>
+                      <td>
+                        <a href="/admin/currentBanner?id=<%= banners[i]._id %>" class="btn btn-info"> choose </a>
+                      </td>
+                      <td>
+                        <%}}%>
+
+                      </td>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <script>
+          function validateImage() {
+            const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            const selectedFile = document.getElementById('imageInput').value;
+            const imageError = document.getElementById('imageError');
+            if (!allowedExtensions.exec(selectedFile)) {
+              imageError.innerHTML = 'Please upload a valid image file (JPG/JPEG/PNG/GIF).';
+              document.getElementById('imageInput').value = '';
+              return false;
+            }
+            else {
+              imageError.innerHTML = '';
+            }
+          }
+        </script>
+
+
+        <script>
+          function emailValidate() {
             let emailId = document.getElementById("form3Example1").value;
             if (emailId.length == 0) {
               document.getElementById("Email").innerHTML = "Please add banner and details";
@@ -136,10 +117,10 @@
               return true;
             }
           }
-</script>
+        </script>
 
 
 
-  
 
-<%- include ('../layouts/adminFooter.ejs') %>
+
+        <%- include ('../layouts/adminFooter.ejs') %>

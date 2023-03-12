@@ -1,337 +1,397 @@
 <%- include ('../layouts/adminHeader.ejs') %>
 
-<%- include ('../layouts/adminMain.ejs') %>
+  <%- include ('../layouts/adminMain.ejs') %>
 
-<!-- Content wrapper -->
-<div class="content-wrapper" style="overflow-x: scroll;">
-  <!-- Content -->
+    <!-- Content wrapper -->
+    <div class="content-wrapper" style="overflow-x: scroll;">
+      <!-- Content -->
 
-  <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> </h4>
+      <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> </h4>
 
-    <div class="d-flex; ">
-                            
-      <a style="font-weight: bold; border-radius: 20px;" href="/admin/orderReport?id=ALLL"
-          class=" btn btn-primary ">
-          <span>All Orders</span>
-      </a>
-  
-  
-      <a style="font-weight: bold; border-radius: 20px" href="/admin/orderReport?id=CONFIRMED"
-          class=" btn btn-primary">
-          <span>Confirmed Orders</span>
-      </a>
-  
-  
-      <a style="font-weight: bold; border-radius: 20px" href="/admin/orderReport?id=DELIVERED"
-          class="btn btn-primary">
-          Delivered Orders
-      </a>
+        <div class="d-flex; ">
 
-      <a style="font-weight: bold; border-radius: 20px" href="/admin/orderReport?id=RETURNED"
-          class="btn btn-primary">
-          Returned Orders
-      </a>
+          <a style="font-weight: bold; border-radius: 20px;" href="/admin/orderReport?id=ALLL"
+            class=" btn btn-primary ">
+            <span>All Orders</span>
+          </a>
 
-      <a style="font-weight: bold; border-radius: 20px" href="/admin/stockReport"
-          class="btn btn-primary">
-          Stock Report
-      </a>
-  
-</div>
-<br>
 
-<div class="card">
-<h5 class="card-header">Order Management</h5>
-<% if(id=='CONFIRMED' ){ %>
-<table class="table" style="max-width: 100%;
+          <a style="font-weight: bold; border-radius: 20px" href="/admin/orderReport?id=CONFIRMED"
+            class=" btn btn-primary">
+            <span>Confirmed Orders</span>
+          </a>
+
+
+          <a style="font-weight: bold; border-radius: 20px" href="/admin/orderReport?id=DELIVERED"
+            class="btn btn-primary">
+            Delivered Orders
+          </a>
+
+          <a style="font-weight: bold; border-radius: 20px" href="/admin/orderReport?id=RETURNED"
+            class="btn btn-primary">
+            Returned Orders
+          </a>
+
+          <a style="font-weight: bold; border-radius: 20px" href="/admin/stockReport" class="btn btn-primary">
+            Stock Report
+          </a>
+
+        </div>
+        <br>
+
+        <div class="card">
+          <h5 class="card-header">Order Management</h5>
+          <% if(id=='CONFIRMED' ){ %>
+            <table class="table" style="max-width: 100%;
 overflow-x: hidden;table-layout: fixed;
     word-wrap: break-word;">
-<div class="table-responsive text-nowrap">
-<thead>
-<tr>
-  <th>Sl No</th>
-  <th>OrderId</th>
-  <th>User</th>
-  <th>Date</th>
-  <th>Payment</th>
-  <th>Total Price</th>
-  <th>Status</th>
-  <th>Actions</th>
+              <div class="table-responsive text-nowrap">
+                <thead>
+                  <tr>
+                    <th>Sl No</th>
+                    <th>OrderId</th>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Payment</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
 
-</tr>
-</thead>
-<tbody>
-  <% if( order.length> 0){ %>
-    <% for(let i=1;i <=order.length; i++){ %>
-      <% if(order[i-1].status=="confirmed" ){ %>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if( order.length> 0){ %>
+                    <% for(let i=1;i <=order.length; i++){ %>
+                      <% if(order[i-1].status=="confirmed" ){ %>
 
-<tr>
-  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong> <%= i %></strong></td>
-  <td>
-    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center"></ul>
-      <%= order[i-1]._id %></td>
-  </ul>
-  <td>
-    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-      <%= order[i-1].userId.name %>
-       
-    </ul>
-  </td>
-  <td>
+                        <tr>
+                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
+                              <%= i %>
+                            </strong></td>
+                          <td>
+                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center"></ul>
+                            <%= order[i-1]._id %>
+                          </td>
+                          </ul>
+                          <td>
+                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                              <%= order[i-1].userId.name %>
 
-    <%= order[i-1].createdAt.toDateString()%>
+                            </ul>
+                          </td>
+                          <td>
 
-  </td>
-  <td>
-    <%= order[i-1].payment %>
-  </td>
-  <td>
-    <%= order[i-1].products.totalPrice %>
-  </td>
+                            <%= order[i-1].createdAt.toDateString()%>
 
-  <td class="text-success"><%= order[i-1].status %></td>
+                          </td>
+                          <td>
+                            <%= order[i-1].payment %>
+                          </td>
+                          <td>
+                            <%= order[i-1].products.totalPrice %>
+                          </td>
 
-  <td>
+                          <td class="text-success">
+                            <%= order[i-1].status %>
+                          </td>
 
-    <a href="/admin/adminCancelOrder?id=<%= order[i-1]._id %>"
-      class="btn btn-outline-primary ">Cancel</a>
-  <a href="/admin/adminDeliveredOrder?id=<%= order[i-1]._id %>"
-      class="btn btn-outline-primary ">Deliver</a>
+                          <td>
 
-  </td>
-  
+                            <a href="/admin/adminCancelOrder?id=<%= order[i-1]._id %>"
+                              class="btn btn-outline-primary ">Cancel</a>
+                            <a href="/admin/adminDeliveredOrder?id=<%= order[i-1]._id %>"
+                              class="btn btn-outline-primary ">Deliver</a>
 
-
-</tr>
-<% }}}else{ %>
-
-  <tr>
-    <td colspan="5">Orders Not Found</td>
-</tr>
-<% } %>
+                          </td>
 
 
 
-</tbody>
+                        </tr>
+                        <% }}}else{ %>
 
-</table>
+                          <tr>
+                            <td colspan="5">Orders Not Found</td>
+                          </tr>
+                          <% } %>
 
-<% }else if(id=='DELIVERED' ){ %>
 
 
-  <table class="table" style="max-width: 100%;
+                </tbody>
+
+            </table>
+
+            <% }else if(id=='DELIVERED' ){ %>
+
+
+              <table class="table" style="max-width: 100%;
 overflow-x: hidden;table-layout: fixed;
     word-wrap: break-word;">
-<div class="table-responsive text-nowrap">
-<thead>
-<tr>
-  <th>Sl No</th>
-  <th>OrderId</th>
- 
-  <th>Date</th>
-  <th>Payment</th>
-  <th>Total Price</th>
-  <th>Status</th>
-  <th>Actions</th>
-  
-</tr>
-</thead>
-<tbody>
-  <% if( order.length> 0){ %>
-    <% for(let i=1;i <=order.length; i++){ %>
-        <% if(order[i-1].status=="Delivered" ){ %>
+                <div class="table-responsive text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Sl No</th>
+                      <th>OrderId</th>
 
-<tr>
-  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong> <%= i %></strong></td>
-  <td>
-    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center"></ul>
-      <%= order[i-1]._id %></td>
-  </ul>
- 
-  <td>
+                      <th>Date</th>
+                      <th>Payment</th>
+                      <th>Total Price</th>
+                      <th>Status</th>
+                      <th>Actions</th>
 
-    <%= order[i-1].createdAt.toDateString()%>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% if( order.length> 0){ %>
+                      <% for(let i=1;i <=order.length; i++){ %>
+                        <% if(order[i-1].status=="Delivered" ){ %>
 
-  </td>
-  <td >
-   <span style="white-space:nowrap"> <%= order[i-1].payment %></span>
-  </td>
-  <td>
-    <%= order[i-1].products.totalPrice %>
-  </td>
+                          <tr>
+                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
+                                <%= i %>
+                              </strong></td>
+                            <td>
+                              <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center"></ul>
+                              <%= order[i-1]._id %>
+                            </td>
+                            </ul>
 
-  <td class="text-success" >   <span style="white-space:nowrap">   <%= order[i-1].status %></span></td>
+                            <td>
 
-  <td>
-    <a href="/admin/adminCancelOrder?id=<%= order[i-1]._id %>"
-        class="btn btn-outline-danger mb-1">Cancel</a>
-</td>
-  <td>
-    <a href="/admin/adminOrderView?id=<%= order[i-1]._id %>"
-        class="btn btn-outline-primary">View</a>
-</td>
+                              <%= order[i-1].createdAt.toDateString()%>
 
+                            </td>
+                            <td>
+                              <span style="white-space:nowrap">
+                                <%= order[i-1].payment %>
+                              </span>
+                            </td>
+                            <td>
+                              <%= order[i-1].products.totalPrice %>
+                            </td>
 
+                            <td class="text-success"> <span style="white-space:nowrap">
+                                <%= order[i-1].status %>
+                              </span></td>
 
-
-</tr>
-<% }}}else{ %>
-
-  <tr>
-    <td colspan="5">Orders Not Found</td>
-</tr>
-<% } %>
+                            <td>
+                              <a href="/admin/adminCancelOrder?id=<%= order[i-1]._id %>"
+                                class="btn btn-outline-danger mb-1">Cancel</a>
+                            </td>
+                            <td>
+                              <a href="/admin/adminOrderDetails?id=<%= order[i-1]._id %>"
+                                class="btn btn-outline-primary">View</a>
+                            </td>
 
 
 
-</tbody>
 
-</table>
+                          </tr>
+                          <% }}}else{ %>
 
-<% }else if(id=='RETURNED' ){ %>
+                            <tr>
+                              <td colspan="5">Orders Not Found</td>
+                            </tr>
+                            <% } %>
 
 
-  <table class="table" style="max-width: 100%;
+
+                  </tbody>
+
+              </table>
+
+              <% }else if(id=='RETURNED' ){ %>
+
+
+                <table class="table" style="max-width: 100%;
 overflow-x: hidden;table-layout: fixed;
     word-wrap: break-word;">
-<div class="table-responsive text-nowrap">
-<thead>
-<tr>
-  <th>Sl No</th>
-  <th>OrderId</th>
-  
-  <th>Date</th>
-  <th>Payment</th>
-  <th>Total Price</th>
-  <th>Status</th>
-  
-  
-</tr>
-</thead>
-<tbody>
-  <% if( order.length> 0){ %>
-    <% for(let i=1;i <=order.length; i++){ %>
-        <% if(order[i-1].status=="Returned" ){ %>
+                  <div class="table-responsive text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>Sl No</th>
+                        <th>OrderId</th>
 
-<tr>
-  <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong> <%= i %></strong></td>
-  <td>
-    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center"></ul>
-      <%= order[i-1]._id %></td>
-  </ul>
-  
-  <td>
-
-    <%= order[i-1].createdAt.toDateString()%>
-
-  </td>
-  <td >
-   <span style="white-space:nowrap"> <%= order[i-1].payment %></span>
-  </td>
-  <td>
-    <%= order[i-1].products.totalPrice %>
-  </td>
-
-  <td class="text-success" >   <span style="white-space:nowrap">   <%= order[i-1].status %></span></td>
-
- 
+                        <th>Date</th>
+                        <th>Payment</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
 
 
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% if( order.length> 0){ %>
+                        <% for(let i=1;i <=order.length; i++){ %>
+                          <% if(order[i-1].status=="Returned" ){ %>
 
-</tr>
-<% }}}else{ %>
+                            <tr>
+                              <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
+                                  <%= i %>
+                                </strong></td>
+                              <td>
+                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center"></ul>
+                                <%= order[i-1]._id %>
+                              </td>
+                              </ul>
 
-  <tr>
-    <td colspan="5">Orders Not Found</td>
-</tr>
-<% } %>
+                              <td>
+
+                                <%= order[i-1].createdAt.toDateString()%>
+
+                              </td>
+                              <td>
+                                <span style="white-space:nowrap">
+                                  <%= order[i-1].payment %>
+                                </span>
+                              </td>
+                              <td>
+                                ₹<%= order[i-1].products.totalPrice %>
+                              </td>
+
+                              <td class="text-success"> <span style="white-space:nowrap">
+                                  <%= order[i-1].status %>
+                                </span></td>
+                              <td>
+                                <p class="text-danger"> Product Returned</p>
+                                <a href="/admin/adminOrderDetails?id=<%= order[i-1]._id %>" class="btn btn-primary"
+                                  style="margin-bottom: 10px;">View</a>
+                              </td>
 
 
+                            </tr>
+                            <% }else if (order[i-1].status=="Return requested" ){ %>
 
-</tbody>
+                              <tr>
+                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
+                                    <%= i %>
+                                  </strong></td>
+                                <td>
+                                  <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center"></ul>
+                                  <%= order[i-1]._id %>
+                                </td>
+                                </ul>
 
-</table>
+                                <td>
 
+                                  <%= order[i-1].createdAt.toDateString()%>
 
-<% }else{ %>
+                                </td>
+                                <td>
+                                  <span style="white-space:nowrap">
+                                    <%= order[i-1].payment %>
+                                  </span>
+                                </td>
+                                <td>
+                                  ₹<%= order[i-1].products.totalPrice %>
+                                </td>
 
-  <table class="table" style="max-width: 100%;
+                                <td class="text-success"> <span style="white-space:nowrap">
+                                    <%= order[i-1].status %>
+                                  </span></td>
+
+                                <% if(order[i-1].status=='Return requested' ){ %>
+                                  <td>
+                                    <a href="/admin/adminOrderDetails?id=<%= order[i-1]._id %>" class="btn btn-primary"
+                                      style="margin-bottom: 10px;">View</a>
+
+                                    <a href="/admin/loadAdminReturn?id=<%= order[i-1]._id %>"
+                                      class="btn btn-primary">Return</a>
+                                    <% }else if(order[i-1].status=='Returned' ){ %>
+                                      <p class="text-info">No Action order is returned</p>
+                                      <% } %>
+                                  </td>
+                              </tr>
+
+                              <% }}}else{ %>
+
+                                <tr>
+                                  <td colspan="5">Orders Not Found</td>
+                                </tr>
+                                <% } %>
+                    </tbody>
+                </table>
+                <% }else{ %>
+                  <table class="table" style="max-width: 100%;
   overflow-x: hidden;table-layout: fixed;
-      word-wrap: break-word;"  id="pdfTable" >
-  <div class="table-responsive text-nowrap">
-  <thead>
-  <tr>
-    <th>Sl No</th>
-    <th>OrderId</th>
-   
-    <th>Date</th>
-    <th>Payment</th>
-    <th>Total Price</th>
-    <th>Status</th>
-    <th>Actions</th>
-    <th>Details</th>
-  
-  </tr>
-  </thead>
-  <tbody>
-    <% if( order.length> 0){ %>
-      <% for(let i=1;i <=order.length; i++){ %>
-        
-  
-  <tr>
-    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong> <%= i %></strong></td>
-    <td>
-      <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center"></ul>
-        <%= order[i-1]._id %></td>
-    </ul>
-    
-    <td>
-  
-      <%= order[i-1].createdAt.toDateString()%>
-  
-    </td>
-    <td>
-      <%= order[i-1].payment %>
-    </td>
-    <td>
-      <%= order[i-1].products.totalPrice %>
-    </td>
-  
-    <td class="text-success"><%= order[i-1].status %></td>
-  
-    <td>
-  
-      <a href="/admin/adminCancelOrder?id=<%= order[i-1]._id %>"
-        class="btn btn-outline-primary ">Cancel</a>
+      word-wrap: break-word;" id="pdfTable">
+                    <div class="table-responsive text-nowrap">
+                      <thead>
+                        <tr>
+                          <th>Sl No</th>
+                          <th>OrderId</th>
 
-        <a href="/admin/confirmOrder?id=<%= order[i-1]._id %>"
-          class="btn btn-outline-success ">confirm</a>
-  
-    </td>
-    <td>
-      <a href="/admin/adminOrderDetails?id=<%= order[i-1]._id %>"
-          class="btn btn-outline-danger mb-1">View</a>
-  </td>
-    
-  
-  
-  </tr>
-  <% }}else{ %>
-  
-    <tr>
-      <td colspan="5">Orders Not Found</td>
-  </tr>
-  <% } %>
+                          <th>Date</th>
+                          <th>Payment</th>
+                          <th>Total Price</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                          <th>Details</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% if( order.length> 0){ %>
+                          <% for(let i=1;i <=order.length; i++){ %>
+
+
+                            <tr>
+                              <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>
+                                  <%= i %>
+                                </strong></td>
+                              <td>
+                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center"></ul>
+                                <%= order[i-1]._id %>
+                              </td>
+                              </ul>
+
+                              <td>
+
+                                <%= order[i-1].createdAt.toDateString()%>
+
+                              </td>
+                              <td>
+                                <%= order[i-1].payment %>
+                              </td>
+                              <td>
+                                <%= order[i-1].products.totalPrice %>
+                              </td>
+
+                              <td class="text-success">
+                                <%= order[i-1].status %>
+                              </td>
+
+                              <td>
+
+                                <a href="/admin/adminCancelOrder?id=<%= order[i-1]._id %>"
+                                  class="btn btn-outline-primary ">Cancel</a>
+
+                                <a href="/admin/confirmOrder?id=<%= order[i-1]._id %>"
+                                  class="btn btn-outline-success ">confirm</a>
+
+                              </td>
+                              <td>
+                                <a href="/admin/adminOrderDetails?id=<%= order[i-1]._id %>"
+                                  class="btn btn-outline-danger mb-1">View</a>
+                              </td>
 
 
 
-  
+                            </tr>
+                            <% }}else{ %>
 
-</div>
-</div>
+                              <tr>
+                                <td colspan="5">Orders Not Found</td>
+                              </tr>
+                              <% } %>
 
-<% } %>
 
-<%- include ('../layouts/adminFooter.ejs') %>
 
+
+
+                    </div>
+        </div>
+
+        <% } %>
+
+          <%- include ('../layouts/adminFooter.ejs') %>

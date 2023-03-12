@@ -66,13 +66,13 @@
                                 <div
                                     class="col-md-2 text-center d-flex justify-content-center align-items-center">
                                     <p class="text-success mb-0 small">₹<%=
-                                            order.products.item[i].productId.price %>
+                                            order.products.item[i].price %>
                                     </p>
                                 </div>
                                 <% if(order.status=='Delivered' ){ %>
                                   <% if(order.productReturned[i]==0){ %>
                                 <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-success mb-0 small"><a href="/returnProduct?id=<%= order.products.item[i].productId._id%>" class="btn-default">Return Product</a>
+                                    <p class="text-success mb-0 small"><a href="/returnProduct?id=<%= order._id%>" class="btn-default">Return Product</a>
                                     </p>
                                 </div>
 
@@ -106,9 +106,16 @@
                   
                               <div class="d-flex justify-content-between pt-2">
                                 <p class="text-dark mb-0">Invoice Number : <%= order._id %></p>
-                                <p class="text-dark mb-0"><span class="fw-bold me-4">Discount </span>₹ 
-                                  
-                                </p>
+                                <p class="text-dark mb-0"><span class="fw-bold me-4">Discount </span>
+                                  <% if( order.discount ){ %>
+                                   <% if( order.discount>='90' ){ %>
+                                    Rs:<%= order.discount %>
+                                      <% } else{ %>
+                                        <%= order.discount %>%
+                                          <% } %>
+                                      <% } else{ %>
+                                        0
+                                          <% } %></p>
                               </div>
                   
                               <div class="d-flex justify-content-between">
@@ -117,8 +124,8 @@
                               </div>
                 
                               <div class="d-flex justify-content-between mb-5">
-                                <p class="text-dark mb-0">Recepit Coupon : </p>
-                                <p class="text-dark mb-0"><span class="fw-bold me-4">Delivery Charges</span> Free</p>
+                                <p class="text-dark mb-0">Recepit Coupon :  <%= order.offer %></p>
+                                <p class="text-dark mb-0"><span class="fw-bold me-4">Delivery Charges:</span> Free</p>
                               </div>
                             </div>
                             <div class="card-footer border-0 px-4 py-5"

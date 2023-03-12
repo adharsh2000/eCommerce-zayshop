@@ -94,10 +94,7 @@
                         <a class="dropdown-item" href="#">Something else here</a> -->
                     </div>
                 </div>
-                <!-- <a class="nav-icon position-relative text-decoration-none" href="#">
-                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                    <!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> -->
-                <!-- </a>  -->
+
             </div>
         </div>
 
@@ -134,46 +131,38 @@
                                                         <button class="btn btn-success ml-2 btn-lg mx-3" id="rzp-button1" style="color:aliceblue;">Pay</button>
                                                         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
                                                         <script>
-                
-                
-                                                            document.getElementById('rzp-button1').onclick =async function (e) {
+                                                            document.getElementById('rzp-button1').onclick = async function (e) {
                                                                 e.preventDefault();
-                
-                                                                let response = await fetch("http://localhost:4000/razorpay",{
+                                                                let response = await fetch("http://localhost:4000/razorpay", {
                                                                     method: "POST",
-                                                                    headers:{
-                                                                        "Content-Type":"application/json"
+                                                                    headers: {
+                                                                        "Content-Type": "application/json"
                                                                     },
-                                                                    body:JSON.stringify({
-                                                                        amount:7800,
+                                                                    body: JSON.stringify({
+                                                                        amount: 7800,
                                                                     })
-                                                                })
-                                                                let orderData = await response.json()
-                                                                console.log(typeof(orderData.order.amount));
-                
+                                                                });
+                                                                let orderData = await response.json();
+                                                                console.log(typeof (orderData.order.amount));
+                                                                console.log('not');
                                                                 var options = {
-                                                                    "key": 'rzp_test_DRjeBcdJDCrHVL', // Enter the Key ID generated from the Dashboard
+                                                                    "key": 'rzp_test_4HEuEe6Sj8lMaK', // Enter the Key ID generated from the Dashboard
                                                                     "amount": orderData.order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                                                                     "currency": "INR",
-                
                                                                     "order_id": orderData.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                                                                     "handler": function (response) {
-                                                                        console.log(response);
+                                                                        // Redirect to the order-success page
+                                                                        window.location.href = '/orderSuccess';
                                                                     },
-                
                                                                 };
-                
                                                                 var rzp1 = new Razorpay(options);
-                
                                                                 rzp1.open();
                                                             }
-                
                                                         </script>
-                
+                                                        
                                                         <a href="/checkout" class="btn btn-success ml-2 btn-lg" style="width:auto ;color:aliceblue;"">Go Back</a>
                                                     </div>
                                                 </div>
-                
                                             </div>
                                         </div>
                                     </div>

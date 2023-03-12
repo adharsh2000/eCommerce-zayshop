@@ -2,11 +2,7 @@
 
 const errorHandler = (err,req,res,next) => {
     if(err){
-        res.status(500).json({
-            error:{
-                message:"oops something wrong",
-            }
-        })
+        res.render('user/404')
         console.log(err);
     }
 }

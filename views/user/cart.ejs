@@ -93,10 +93,6 @@
                     <a class="dropdown-item" href="#">Something else here</a> -->
                             </div>
                         </div>
-                        <!-- <a class="nav-icon position-relative text-decoration-none" href="#">
-                <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                <!-- <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span> -->
-                        <!-- </a>  -->
                     </div>
                 </div>
 
@@ -128,23 +124,6 @@
                                                     </thead>
                                                     <tbody>
                                                         <% } %>
-                                                            <!-- <tr>
-                                <td width="45%">
-                                    <div class="display-flex align-center">
-                                        <div class="img-product">
-                                            <img src="https://www.91-img.com/pictures/laptops/asus/asus-x552cl-sx019d-core-i3-3rd-gen-4-gb-500-gb-dos-1-gb-61721-large-1.jpg" alt="" class="mCS_img_loaded">
-                                        </div>
-                                        <div class="name-product">
-                                            Apple iPad Mini
-                                        </div>
-                                    </div>
-                                </td>
-                                <td width="15%" class="price">$110.00</td>
-                                <td width="15%"><span class="in-stock-box">In Stock</span></td>
-                                <td width="15%"><button class="round-black-btn small-btn">Add to Cart</button></td>
-                                <td width="10%" class="text-center"><a href="#" class="trash-icon"><i class="far fa-trash-alt"></i></a></td>
-                            </tr> -->
-
                                                             <% if(cartProducts.totalPrice){%>
                                                                 <% for(let key of cartProducts.item) {%>
                                                                     <tr>
@@ -211,9 +190,6 @@
                                                                             <td>
                                                                                 <div
                                                                                     class="cupon_text d-flex align-items-center">
-                                                                                    <!-- <input type="text" placeholder="Coupon Code">
-                                        <a class="btn btn-primary" href="#">Apply</a>
-                                        <a class="btn btn-danger" href="#">Close Coupon</a> -->
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
@@ -240,22 +216,7 @@
                                                                                 </h5>
                                                                             </td>
                                                                         </tr>
-                                                                        <!-- <tr class="shipping_area">
-                                <td>
 
-                                </td>
-                                <td>
-
-                                </td>
-                                <td>
-                                    <!-- <h5>Shipping</h5> -->
-                                                                        <!-- </td>
-                                <td>
-                                    <div class="shipping_box">
-                                       
-                                    </div>
-                                </td>
-                            </tr>  -->
                                                                         <tr class="out_button_area">
                                                                             <td>
 
@@ -417,17 +378,17 @@
                     <script>
                         const inputFields = document.querySelectorAll('.input-field');
 
-inputFields.forEach((inputField) => {
-  inputField.addEventListener('mousedown', function (event) {
-    event.preventDefault();
-  });
+                        inputFields.forEach((inputField) => {
+                            inputField.addEventListener('mousedown', function (event) {
+                                event.preventDefault();
+                            });
 
-  inputField.addEventListener('onwheel', function (event) {
-    if (document.activeElement === inputField) {
-      event.preventDefault();
-    }
-  });
-});
+                            inputField.addEventListener('onwheel', function (event) {
+                                if (document.activeElement === inputField) {
+                                    event.preventDefault();
+                                }
+                            });
+                        });
 
 
 
@@ -467,6 +428,10 @@ inputFields.forEach((inputField) => {
                             try {
                                 const productId = e.target.parentElement.children[0].value
                                 const data = { qty: e.target.value }
+                                // Check if the quantity is less than 1
+                                if (data.qty < 1) {
+                                    throw new Error('Quantity must be greater than or equal to 1');
+                                }
                                 console.log(data);
                                 const response = await fetch(`/editCart?id=${productId}`, {
                                     method: 'post',

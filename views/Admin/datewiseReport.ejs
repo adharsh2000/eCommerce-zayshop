@@ -1,0 +1,99 @@
+<%- include ('../layouts/adminHeader.ejs') %>
+
+  <%- include ('../layouts/adminMain.ejs') %>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      tfoot td {
+        background-color: #f2f2f2;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+    </style>
+
+    <div class="container">
+
+      <body>
+        <h1>Sales Report</h1>
+        <h3 style="margin-left: 40%;">Sales Report <a href="/admin/datedownload"
+            class="pb-1 btn btn-primary">Download</a></h3>
+        <table id="myTab" class="table align-middle mb-0 bg-white">
+          <thead class="bg-light">
+            <tr>
+              <th>Sl. No</th>
+              <th>Order ID</th>
+              <th>User</th>
+              <th>Total Price</th>
+              <th>Date</th>
+              <th>Payment Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let deliveredProducts=product.filter(p=> p.status === "Delivered"); %>
+              <% if (deliveredProducts.length> 0) { %>
+                <% for (let i=0; i < deliveredProducts.length; i++) { %>
+                  <tr>
+                    <td>
+                      <%= [i+1] %>
+                    </td>
+                    <td>
+                      <%= deliveredProducts[i]._id %>
+                    </td>
+                    <td>
+                      <%= deliveredProducts[i].firstname + deliveredProducts[i].lastname %>
+                    </td>
+                    <td>
+                      <div>₹<%= deliveredProducts[i].products.totalPrice %>
+                      </div>
+                    </td>
+                    <td>
+                      <%= deliveredProducts[i].createdAt.toString().slice(0,21) %>
+                    </td>
+                    <td>
+                      <%= deliveredProducts[i].payment %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% } else { %>
+                      <tr>
+                        <td colspan="6" class="text-center">Product not found</td>
+                      </tr>
+                      <% } %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+    </div>
+    </body>
+    </div>
+
+    <%- include ('../layouts/adminFooter.ejs') %>

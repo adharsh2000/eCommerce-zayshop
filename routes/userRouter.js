@@ -4,9 +4,6 @@ const userController = require("../controllers/userController");
 const auth = require("../middleware/auth");
 
 
-// user_route.set("view engine", "ejs");
-// user_route.set("views", "./views/user");
-
 
 //gets
 user_route.get("/register",auth.isLogout, userController.loadRegister);
@@ -57,9 +54,13 @@ user_route.get('/addToCartDeleteWishlist',auth.isLogin, userController.addCartDe
 
 user_route.get('/profile',auth.isLogin,userController.loadProfile)
 
-user_route.get('/forgetPassword',userController.forgetPassword)
+user_route.get('/forgetPassword',auth.isLogout,userController.forgetPassword)
 
+user_route.get('/loginMobile',auth.isLogout,userController.loginMobileload)
 
+user_route.get('/loginOtp',auth.isLogout,userController.loginOtpLoad)
+
+user_route.get('/forgotPassword',auth.isLogout,userController.renderForgotPasswordForm)
 
 user_route.get("*",userController.errorPage)
 
@@ -81,9 +82,19 @@ user_route.post('/checkout',userController.storeOrder)
 
 user_route.post('/editUser',userController.editUser);
 
+user_route.post('/send-otp',userController.readMobile)
+
+user_route.post('/otpLogin',userController.mobileLogin)
+
 user_route.post('/changePassword',userController.changePassword)
 
 user_route.post('/razorpay', userController.razorpayCheckout)
+
+user_route.post('/forgot-password',userController.handleForgotPassword)
+
+user_route.post('/enter-otp',userController.handleEnterOTP)
+
+user_route.post('/change-password',userController.handleChangePassword)
 
 
 

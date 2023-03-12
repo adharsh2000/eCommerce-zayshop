@@ -105,21 +105,25 @@
             </div>
             <div class="col-right">
                 <div class="login-form">
-                    <h2>Enter the email</h2>
-                    <form action="/forgot-password" method="POST">
+                    <h2>OTP is send to your mobile</h2>
+                    <form action="/otpLogin" method="POST">
                         <p>
-                            <input type="email" name="email" placeholder="enter the email" required>
+                            <input type="number" name="otp" placeholder="enter the OTP" required>
+                            <input type="hidden" name="mno" value="<%= mobile %>">
                         </p>
                         <p>
+                    
                                                 <!-- <button type="submit" value="Register" class="btn btn-primary btn-lg">Confirm</button> -->
                             <input class="btn" type="submit" value="submit" />
                             <!-- <button type="submit" value="Register" class="btn btn-primary btn-lg">Confirm</button> -->
                         </p>
-                        <% if(typeof message !== 'undefined'){ %>
-                            <p style="color: red
-                            ;"><%= message %></p>
-                        <% } %> 
+                        
                     </form>
+                    <% if(typeof message !=='undefined' ){%>
+                        <p style="color:rgb(255, 0, 0)">
+                            <%= message %>
+                        </p>
+                        <% } %>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <%- include ('../layouts/adminHeader.ejs') %>
 
-<%- include ('../layouts/adminMain.ejs') %>
+  <%- include ('../layouts/adminMain.ejs') %>
 
     <!-- Content wrapper -->
     <div class="content-wrapper">
@@ -61,71 +61,67 @@
                             <% }else{ %>
                               Image Not Found
                               <% } %> -->
-                              <a class="btn btn-outline-primary" href="/admin/viewProduct?id=<%= products[i]._id %>">View</a>
+                          <a class="btn btn-outline-primary"
+                            href="/admin/viewProduct?id=<%= products[i]._id %>">View</a>
                         </td>
                         <td>
                           <a class="btn btn-warning" href="/admin/editProduct?id=<%= products[i]._id %>"><i
                               style="color: green;" class="m-r-5 mdi mdi-border-color"></i>Edit</a><br>
-                          <!-- <a data-toggle="modal" style="color: red"; data-target="
-                            #deleteModal" href=""><i
-                                class=" m-r-5 mdi mdi-delete-forever"></i>Delete</a> -->
-                          <!-- <a class="btn btn-danger mt-1 trigger-btn" href="#myModal"  data-toggle="modal"><i
-                              style="color: #ff0000;" class="m-r-5 mdi mdi-border-color"></i>Delete</a><br> -->
+
                           <% if(products[i].isAvailable) { %>
-                            <a class="btn btn-danger text-white click"  style="width: 90px;margin-top: 16px;"
+                            <a class="btn btn-danger text-white click" style="width: 90px;margin-top: 16px;"
                               href="/admin/unlistProduct?id=<%= products[i]._id %>">Unlist</a>
                             <!-- Modal HTML -->
-                            
-                                    <!-- <button type="button" class="btn btn-danger">Delete</button> -->
-                                    
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <% } else { %>
-                              
-                              <a  class="btn btn-success text-white"  style="width: 90px;margin-top: 16px;"
-                                          href="/admin/listProduct?id=<%= products[i]._id %>">List</a>
-                              <% } %>
-                        </td>
-                      </tr>
-                      <% } %>
-                        <% } } else{ %>
-                          <tr>
-                            <td colspan="5">Products Not Found</td>
-                          </tr>
-                          <% } %>
 
-              </tbody>
-            </table>
+
           </div>
         </div>
+      </div>
+    </div>
+    <% } else { %>
 
-        <script>
-          $('.click').on('click',function (e) {
-              e.preventDefault();
-              var self = $(this);
-              console.log(self.data('title'));
-              Swal.fire({
-                  title: 'Are you sure?',
-                  text: "You want to unlist product?",
-                  icon: 'warning',
-                  showCancelButton: true,
-                  confirmButtonColor: '#3085d6',
-                  cancelButtonColor: '#d33',
-                  confirmButtonText: 'Yes, unlist it!'
-              }).then((result) => {
-                  if (result.isConfirmed) {
+      <a class="btn btn-success text-white" style="width: 90px;margin-top: 16px;"
+        href="/admin/listProduct?id=<%= products[i]._id %>">List</a>
+      <% } %>
+        </td>
+        </tr>
+        <% } %>
+          <% } } else{ %>
+            <tr>
+              <td colspan="5">Products Not Found</td>
+            </tr>
+            <% } %>
+
+              </tbody>
+              </table>
+              </div>
+              </div>
+
+              <script>
+                $('.click').on('click', function (e) {
+                  e.preventDefault();
+                  var self = $(this);
+                  console.log(self.data('title'));
+                  Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You want to unlist product?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, unlist it!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
                       Swal.fire(
-                          'Unlisted!',
-                          'Product has been Unlisted.',
-                          'success'
+                        'Unlisted!',
+                        'Product has been Unlisted.',
+                        'success'
                       )
-                    location.href = self.attr('href');
-                  }
-              })
-          })
-      </script>
+                      location.href = self.attr('href');
+                    }
+                  })
+                })
+              </script>
 
 
-<%- include ('../layouts/adminFooter.ejs') %>
+              <%- include ('../layouts/adminFooter.ejs') %>

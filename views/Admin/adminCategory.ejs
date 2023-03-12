@@ -65,7 +65,7 @@
                               <a class="btn btn-danger text-white click" style="width: 90px;"
                                 href="/admin/unlistCategory?id=<%= category[i]._id %> ">Unlist</a>
                               <% } else { %>
-                                <a class="btn btn-success" style="width: 90px;"
+                                <a class="btn btn-success click" style="width: 90px;"
                                   href="/admin/listCategory?id=<%= category[i]._id %> ">List</a>
                                 <% } %>
                           </td>
@@ -99,17 +99,17 @@
             console.log(self.data('title'));
             Swal.fire({
               title: 'Are you sure?',
-              text: "You want to unlist category?",
+              text: "You want to continue?",
               icon: 'warning',
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
               cancelButtonColor: '#d33',
-              confirmButtonText: 'Yes, unlist it!'
+              confirmButtonText: 'Yes!'
             }).then((result) => {
               if (result.isConfirmed) {
                 Swal.fire(
                   'Unlisted!',
-                  'Category has been Unlisted.',
+                  'done.',
                   'success'
                 )
                 location.href = self.attr('href');
