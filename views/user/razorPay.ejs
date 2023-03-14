@@ -133,7 +133,8 @@
                                                         <script>
                                                             document.getElementById('rzp-button1').onclick = async function (e) {
                                                                 e.preventDefault();
-                                                                let response = await fetch("http://localhost:4000/razorpay", {
+                                                                //http://localhost:4000/razorpay -- for localhost
+                                                                let response = await fetch("https://www.zayshop.online/razorpay", {
                                                                     method: "POST",
                                                                     headers: {
                                                                         "Content-Type": "application/json"
