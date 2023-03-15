@@ -904,8 +904,8 @@ const razorpayCheckout = async (req, res) => {
   const userData = await User.findById({ _id: userSession.userId });
   const completeUser = await userData.populate("cart.item.productId");
   var instance = new Razorpay({
-    key_id: process.env.key_id,
-    key_secret: process.env.key_secret,
+    key_id:"rzp_test_4HEuEe6Sj8lMaK",
+    key_secret:"TmTCjrmbDypFvPPDbJWqCA5i",
   });
   let order = await instance.orders.create({
     amount: completeUser.cart.totalPrice * 100,
