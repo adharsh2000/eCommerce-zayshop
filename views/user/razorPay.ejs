@@ -137,38 +137,35 @@
                                                                 onclick="pay()" style="color:aliceblue;">Pay</button>
                                                             <script
                                                                 src="https://checkout.razorpay.com/v1/checkout.js"></script>
-                                                            <script>
-                                                                async function pay(e) {
-                                                                    try {
-                                                                        let response = await fetch("http://localhost:4000/razorpayment", {
-                                                                            method: "POST",
-                                                                            headers: {
-                                                                                "Content-Type": "application/json"
+                                                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-7mvKbNpM9XBiRlwujgWVtJg+YenH7a3m3gWdZMzJcKfLdXs+4Qs4lT+TJ/p1n+rkNvS8kTJb6yelz0ovLp6aMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-sgLnwCkH5m5y//Q5FG5ue3h5BzyZ5z5blczVPdwJvzdf+ywMHS25N6vxNk1l9dnN8ceCXYU/Am6Y/E33N/7n6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                                                                <script>
+                                                                    function pay(e) {
+                                                                      $.ajax({
+                                                                        url: "http://localhost:4000/razorpayment",
+                                                                        type: "POST",
+                                                                        data: JSON.stringify({ amount: 7800 }),
+                                                                        contentType: "application/json",
+                                                                        success: function (data) {
+                                                                          var options = {
+                                                                            key: "rzp_test_4HEuEe6Sj8lMaK",
+                                                                            amount: data.order.amount,
+                                                                            currency: "INR",
+                                                                            order_id: data.id,
+                                                                            handler: function (response) {
+                                                                              window.location.href = "/orderSuccess";
                                                                             },
-                                                                            body: JSON.stringify({
-                                                                                amount: 7800
-                                                                            })
-                                                                        });
-                                                                        let orderData = await response.json();
-                                                                        console.log(typeof orderData.order.amount);
-                                                                        console.log("not");
-                                                                        var options = {
-                                                                            "key": "rzp_test_4HEuEe6Sj8lMaK",
-                                                                            "amount": orderData.order.amount,
-                                                                            "currency": "INR",
-                                                                            "order_id": orderData.id,
-                                                                            "handler": function (response) {
-                                                                                window.location.href = "/orderSuccess";
-                                                                            }
-                                                                        };
-                                                                        var rzp1 = new Razorpay(options);
-                                                                        rzp1.open();
-                                                                    } catch (error) {
-                                                                        console.error("An error occurred while fetching data:", error);
+                                                                          };
+                                                                          var rzp1 = new Razorpay(options);
+                                                                          rzp1.open();
+                                                                        },
+                                                                        error: function (xhr, status, error) {
+                                                                          console.error("An error occurred while fetching data:", error);
+                                                                        },
+                                                                      });
                                                                     }
-                                                                }
-
-                                                            </script>
+                                                                  </script>
+                                                                  
 
                                                             <a href="/checkout" class="btn btn-success ml-2 btn-lg"
                                                                 style="width:auto ;color:aliceblue;"">Go Back</a>
