@@ -1,165 +1,177 @@
 <%- include ('../layouts/userheader.ejs') %>
 
 
-<% if(id) { %>
-            <!-- Start Top Nav -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-    <div class="container text-light">
-        <div class="w-100 d-flex justify-content-between">
-            <div>
-                <i class="fa fa-envelope mx-2"></i>
-                <a class="navbar-sm-brand text-light text-decoration-none"
-                    href="mailto:info@company.com">info@company.com</a>
-                <i class="fa fa-phone mx-2"></i>
-                <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+    <% if(id) { %>
+        <!-- Start Top Nav -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+            <div class="container text-light">
+                <div class="w-100 d-flex justify-content-between">
+                    <div>
+                        <i class="fa fa-envelope mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none"
+                            href="mailto:info@company.com">info@company.com</a>
+                        <i class="fa fa-phone mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none"
+                            href="tel:010-020-0340">010-020-0340</a>
+                    </div>
+                    <div>
+                        <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                                class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                                class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                                class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                                class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                    </div>
+                </div>
             </div>
-            <div>
-                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
-                        class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
-                        class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://twitter.com/" target="_blank"><i
-                        class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
-                        class="fab fa-linkedin fa-sm fa-fw"></i></a>
-            </div>
-        </div>
-    </div>
-</nav>
-<!-- Close Top Nav -->
+        </nav>
+        <!-- Close Top Nav -->
 
 
-<!-- Header -->
-<nav class="navbar navbar-expand-lg navbar-light shadow">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <!-- Header -->
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
 
-        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-            Zay
-        </a>
+                <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                    Zay
+                </a>
 
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-            data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
-            id="templatemo_main_nav">
-            <div class="flex-fill">
-                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/products">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="navbar align-self-center d-flex">
-                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                        <div class="input-group-text">
-                            <i class="fa fa-fw fa-search"></i>
+                <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                    id="templatemo_main_nav">
+                    <div class="flex-fill">
+                        <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/products">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navbar align-self-center d-flex">
+                        <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                                <div class="input-group-text">
+                                    <i class="fa fa-fw fa-search"></i>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-                    data-bs-target="#templatemo_search">
-                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                </a>
-                <a class="nav-icon position-relative text-decoration-none" href="/wishlist">
-                    <i class="material-symbols-outlined text-dark mr-1 mt-1">favorite</i>
-                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                </a>
-                <a class="nav-icon position-relative text-decoration-none" href="/cart">
-                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                </a>
-                <div class="dropdown">
-                    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Account
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="/logout">Sign Out</a>
-                        <!-- <a class="dropdown-item" href="#">Another action</a>
+                        <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                            data-bs-target="#templatemo_search">
+                            <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                        </a>
+                        <a class="nav-icon position-relative text-decoration-none" href="/wishlist">
+                            <i class="material-symbols-outlined text-dark mr-1 mt-1">favorite</i>
+                            <span
+                                class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        </a>
+                        <a class="nav-icon position-relative text-decoration-none" href="/cart">
+                            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                            <span
+                                class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        </a>
+                        <div class="dropdown">
+                            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                <a class="dropdown-item" href="/logout">Sign Out</a>
+                                <!-- <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a> -->
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
             </div>
-        </div>
-
-    </div>
-</nav>
-<!-- Close Header -->
+        </nav>
+        <!-- Close Header -->
         <% }else { %>
             <%- include ('../layouts/usernavbar.ejs') %>
                 <% } %>
 
 
-                <div class="container h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-lg-12 col-xl-11">
-                            <div class="card bg-transparent" style="border-radius: 25px;">
-                                <div class="card-body p-md-5">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"><span
-                                                    class="text-main-1">Razorpay Process</span> To Payment</p>
-                
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <label class="text-center form-label ml-2" for="form3Example3c">Click Below to Pay Total:₹<%= total %></label>
+                    <div class="container h-100">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col-lg-12 col-xl-11">
+                                <div class="card bg-transparent" style="border-radius: 25px;">
+                                    <div class="card-body p-md-5">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"><span
+                                                        class="text-main-1">Razorpay Process</span> To Payment</p>
+
+                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                    <div class="form-outline flex-fill mb-0">
+                                                        <label class="text-center form-label ml-2"
+                                                            for="form3Example3c">Click Below to Pay Total:₹<%= total %>
+                                                                </label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                
-                                            <div class="row vertical-gap" style=" margin-left: 30%;">
-                                                <div class="col-md-6">
-                                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4" >
-                
-                
-                                                        <button class="btn btn-success ml-2 btn-lg mx-3" onclick="pay()" style="color:aliceblue;">Pay</button>
-                                                        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-                                                        <script>
-                                                            async  function pay (e) {
-                                                                let response = await fetch("http://localhost:4000/razorpay", {
-                                                                    method: "POST",
-                                                                    headers: {
-                                                                        "Content-Type": "application/json"
-                                                                    },
-                                                                    body: JSON.stringify({
-                                                                        amount: 7800,
-                                                                    })
-                                                                });
-                                                                let orderData = await response.json();
-                                                                console.log(typeof (orderData.order.amount));
-                                                                console.log('not');
-                                                                var options = {
-                                                                    "key": 'rzp_test_4HEuEe6Sj8lMaK', // Enter the Key ID generated from the Dashboard
-                                                                    "amount": orderData.order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-                                                                    "currency": "INR",
-                                                                    "order_id": orderData.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-                                                                    "handler": function (response) {
-                                                                        // Redirect to the order-success page
-                                                                        window.location.href = '/orderSuccess';
-                                                                    },
-                                                                };
-                                                                var rzp1 = new Razorpay(options);
-                                                                rzp1.open();
-                                                            }
-                                                        </script>
-                                                        
-                                                        <a href="/checkout" class="btn btn-success ml-2 btn-lg" style="width:auto ;color:aliceblue;"">Go Back</a>
+
+                                                <div class="row vertical-gap" style=" margin-left: 30%;">
+                                                    <div class="col-md-6">
+                                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+
+
+                                                            <button class="btn btn-success ml-2 btn-lg mx-3"
+                                                                onclick="pay()" style="color:aliceblue;">Pay</button>
+                                                            <script
+                                                                src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                                                            <script>
+                                                                async function pay(e) {
+                                                                    try {
+                                                                        let response = await fetch("http://localhost:4000/razorpay", {
+                                                                            method: "POST",
+                                                                            headers: {
+                                                                                "Content-Type": "application/json"
+                                                                            },
+                                                                            body: JSON.stringify({
+                                                                                amount: 7800
+                                                                            })
+                                                                        });
+                                                                        let orderData = await response.json();
+                                                                        console.log(typeof orderData.order.amount);
+                                                                        console.log("not");
+                                                                        var options = {
+                                                                            "key": "rzp_test_4HEuEe6Sj8lMaK",
+                                                                            "amount": orderData.order.amount,
+                                                                            "currency": "INR",
+                                                                            "order_id": orderData.id,
+                                                                            "handler": function (response) {
+                                                                                window.location.href = "/orderSuccess";
+                                                                            }
+                                                                        };
+                                                                        var rzp1 = new Razorpay(options);
+                                                                        rzp1.open();
+                                                                    } catch (error) {
+                                                                        console.error("An error occurred while fetching data:", error);
+                                                                    }
+                                                                }
+
+                                                            </script>
+
+                                                            <a href="/checkout" class="btn btn-success ml-2 btn-lg"
+                                                                style="width:auto ;color:aliceblue;"">Go Back</a>
                                                     </div>
                                                 </div>
                                             </div>
