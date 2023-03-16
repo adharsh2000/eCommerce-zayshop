@@ -88,7 +88,7 @@ user_route.post('/otpLogin',userController.mobileLogin)
 
 user_route.post('/changePassword',userController.changePassword)
 
-user_route.post('/razorpay', userController.razorpayCheckout)
+user_route.post('/razorpayment', userController.razorpayCheckout)
 
 user_route.post('/forgot-password',userController.handleForgotPassword)
 
